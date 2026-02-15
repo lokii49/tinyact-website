@@ -1,0 +1,292 @@
+---
+// Social Proof section - Testimonials and example outcomes
+---
+
+<section class="social-proof section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label label-coral">Real Results</span>
+      <h2>What accountability looks like in practice</h2>
+      <p>Example outcomes from users building habits with TinyAct.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #FF6B5A, #FF8F7A);">M</div>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Marcus</span>
+            <span class="testimonial-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L3.5 6.2a1 1 0 0 0-.5.87v4.93c0 4.86 3.75 9.36 9 10a.5.5 0 0 0 0-1c-4.5-.57-7.5-4.31-7.5-8.57V7.5L12 4l7.5 3.5v4.93c0 4.26-3 8-7.5 8.57a.5.5 0 0 0 0 1c5.25-.64 9-5.14 9-10V7.07a1 1 0 0 0-.5-.87L12 2z"/>
+                <path d="M8.5 12.5l2.5 2.5 5-5" fill="none" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              28-day streak
+            </span>
+          </div>
+        </div>
+        <blockquote>
+          "Knowing Sarah's streak depends on me checking in makes it impossible to skip. I've never stuck with a workout routine this long."
+        </blockquote>
+        <div class="testimonial-commitment">
+          <span class="commitment-emoji">10</span>
+          <span class="commitment-text">pushups before work</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #9466DE, #A880E8);">J</div>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Jessica</span>
+            <span class="testimonial-badge green">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              Group of 5
+            </span>
+          </div>
+        </div>
+        <blockquote>
+          "Our morning meditation group is my favorite part of the day. Seeing everyone check in motivates me to show up even when I don't feel like it."
+        </blockquote>
+        <div class="testimonial-commitment">
+          <span class="commitment-emoji">5</span>
+          <span class="commitment-text">min meditation at 7am</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #57C760, #7BD982);">E</div>
+          <div class="testimonial-meta">
+            <span class="testimonial-name">Emma</span>
+            <span class="testimonial-badge purple">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                <line x1="4" y1="22" x2="4" y2="15" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              3 comebacks
+            </span>
+          </div>
+        </div>
+        <blockquote>
+          "I broke my streak twice but came back both times. The comeback tracking helped me realize that missing a day doesn't mean starting from zero."
+        </blockquote>
+        <div class="testimonial-commitment">
+          <span class="commitment-emoji">10</span>
+          <span class="commitment-text">pages before bed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-banner reveal">
+      <div class="stat-item">
+        <span class="stat-number">65%</span>
+        <span class="stat-desc">more likely to complete goals with a partner</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">21</span>
+        <span class="stat-desc">days to form a lasting habit</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-number">4h</span>
+        <span class="stat-desc">grace period so life doesn't ruin your streak</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-proof {
+    background: var(--bg-primary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-extrabold);
+    margin: var(--space-4) 0;
+    line-height: var(--leading-tight);
+    color: var(--text-primary);
+  }
+
+  .section-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    margin-bottom: var(--space-16);
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-slow);
+    border: 1px solid transparent;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(255, 107, 90, 0.15);
+  }
+
+  .testimonial-header {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+  }
+
+  .testimonial-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: var(--font-bold);
+    font-size: var(--text-xl);
+    flex-shrink: 0;
+  }
+
+  .testimonial-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .testimonial-name {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+  }
+
+  .testimonial-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    color: var(--coral);
+    margin-top: var(--space-1);
+  }
+
+  .testimonial-badge.green {
+    color: var(--green);
+  }
+
+  .testimonial-badge.purple {
+    color: var(--purple);
+  }
+
+  .testimonial-card blockquote {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-5);
+    font-style: italic;
+  }
+
+  .testimonial-commitment {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--gray-50);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .commitment-emoji {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--coral);
+  }
+
+  .commitment-text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Stats Banner */
+  .stats-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-12);
+    background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
+    border-radius: var(--radius-3xl);
+    padding: var(--space-10) var(--space-12);
+    color: var(--white);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: var(--text-5xl);
+    font-weight: var(--font-extrabold);
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .stat-desc {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 180px;
+    display: block;
+    line-height: var(--leading-snug);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto var(--space-12);
+    }
+
+    .stats-banner {
+      flex-direction: column;
+      gap: var(--space-6);
+      padding: var(--space-8);
+    }
+
+    .stat-divider {
+      width: 60px;
+      height: 1px;
+    }
+
+    .stat-desc {
+      max-width: 100%;
+    }
+  }
+</style>

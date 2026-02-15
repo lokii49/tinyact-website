@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TinyAct Privacy Policy - Learn how we collect, use, and protect your data.">
+    <title>Privacy Policy - TinyAct</title>
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+    <link rel="canonical" href="https://tinyact.app/privacy-policy.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6B5A;
+            --primary-light: #FF8F7A;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            --bg-white: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --border-light: #E2E8F0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.7;
+            background: var(--bg-white);
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+
+        .btn {
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            box-shadow: 0 15px 40px rgba(255,107,90,0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(255,107,90,0.45);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 3rem;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255, 107, 90, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(102, 126, 234, 0.2) 0%, transparent 50%);
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .effective-date {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.5rem;
+        }
+
+        /* Content */
+        .content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 2rem 6rem;
+        }
+
+        .content h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 2.5rem 0 0.75rem;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .content ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .content li {
+            margin-bottom: 0.4rem;
+        }
+
+        .content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .content a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 2rem;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .page-header { padding: 7rem 1.5rem 2.5rem; }
+            .content { padding: 2rem 1.5rem 4rem; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="favicon.png" alt="TinyAct"></div>
+                <span class="logo-text">TinyAct</span>
+            </a>
+            <a href="https://apps.apple.com/app/tinyact" class="btn btn-primary">Download</a>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Privacy Policy</h1>
+            <p>How we handle your data at TinyAct</p>
+            <p class="effective-date">Effective Date: February 5, 2026</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <div class="content">
+
+        <h2>1. Introduction</h2>
+        <p>TinyAct ("we," "our," or "the app") is a micro-commitment tracking application designed to help you build consistent daily habits through accountability and community. This Privacy Policy explains what information we collect, how we use it, and the choices you have regarding your data.</p>
+        <p>By using TinyAct, you agree to the collection and use of information as described in this policy.</p>
+
+        <h2>2. Information We Collect</h2>
+
+        <h3>2.1 Account Information</h3>
+        <p>When you create an account, we collect:</p>
+        <ul>
+            <li><strong>Authentication data:</strong> Information provided through Apple Sign-In or Google Sign-In, which may include your name and email address.</li>
+            <li><strong>Username:</strong> A unique username you choose during account setup.</li>
+            <li><strong>Profile details:</strong> First name, last name, and optional profile photo.</li>
+        </ul>
+
+        <h3>2.2 Commitment and Activity Data</h3>
+        <p>As you use the app, we store:</p>
+        <ul>
+            <li><strong>Commitments:</strong> The daily habits you create, including title, description, emoji, schedule, and duration.</li>
+            <li><strong>Check-ins:</strong> Records of your daily completions, including timestamps and proof type (honor-based or photo).</li>
+            <li><strong>Streaks:</strong> Your current and longest streak counts, including partnership streaks with accountability partners.</li>
+            <li><strong>Achievements:</strong> Awards and experience points earned through app usage.</li>
+        </ul>
+
+        <h3>2.3 Photos</h3>
+        <p>You may optionally provide photos in the following contexts:</p>
+        <ul>
+            <li><strong>Proof photos:</strong> Images taken via camera or selected from your photo library to verify a check-in. These are uploaded to secure cloud storage.</li>
+            <li><strong>Profile avatar:</strong> An optional profile picture uploaded from your photo library.</li>
+        </ul>
+        <p>Camera and photo library access is only used when you explicitly choose to capture or select an image. We do not access your camera or photo library in the background.</p>
+
+        <h3>2.4 Social and Group Data</h3>
+        <ul>
+            <li><strong>Groups:</strong> Group memberships, group names, and member lists.</li>
+            <li><strong>Accountability partnerships:</strong> Records of paired partnerships within groups.</li>
+            <li><strong>Reactions:</strong> Emoji reactions you give to or receive from other users on check-ins.</li>
+            <li><strong>Invitations:</strong> Group and partnership invitations sent or received.</li>
+        </ul>
+
+        <h3>2.5 Device Information</h3>
+        <ul>
+            <li><strong>Push notification token:</strong> A Firebase Cloud Messaging (FCM) token used to deliver push notifications to your device. This token does not identify you personally and is only stored if you enable notifications.</li>
+            <li><strong>Timezone:</strong> Your device timezone, used to accurately track daily check-ins.</li>
+        </ul>
+
+        <h3>2.6 Interest Preferences</h3>
+        <p>During onboarding, you may select interest categories (e.g., meditation, reading, workout) to personalize your experience.</p>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+            <li>Provide and operate the core app features (commitments, check-ins, streaks, groups).</li>
+            <li>Enable social features such as accountability partnerships, group commitments, and reactions.</li>
+            <li>Calculate and display streak counts, achievements, and progress statistics.</li>
+            <li>Send push notifications for reminders, partnership updates, and group activity.</li>
+            <li>Display your profile and activity to other group members and accountability partners.</li>
+            <li>Share commitment progress data with the TinyAct home screen widget (stored locally on your device via App Groups).</li>
+        </ul>
+
+        <h2>4. Data Storage and Security</h2>
+        <p>Your data is stored using Google Firebase services, which are hosted on Google Cloud Platform infrastructure. Specifically:</p>
+        <ul>
+            <li><strong>Cloud Firestore:</strong> Stores user profiles, commitments, completions, groups, streaks, invitations, and reactions.</li>
+            <li><strong>Firebase Realtime Database:</strong> Powers the real-time activity feed.</li>
+            <li><strong>Firebase Storage:</strong> Stores uploaded proof photos and profile avatars.</li>
+            <li><strong>Firebase Authentication:</strong> Manages secure sign-in via Apple and Google.</li>
+        </ul>
+        <p>All data is transmitted over encrypted HTTPS connections. Firebase services employ industry-standard security measures including encryption at rest and in transit. Access to your data in the database is restricted through security rules that ensure users can only access their own data and data from groups they belong to.</p>
+
+        <h2>5. Third-Party Services</h2>
+        <p>TinyAct uses the following third-party services:</p>
+        <ul>
+            <li><strong>Firebase by Google:</strong> Authentication, database, file storage, and push notifications. See <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a>.</li>
+            <li><strong>Apple Sign-In:</strong> Used for authentication. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>.</li>
+            <li><strong>Google Sign-In:</strong> Used for authentication. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+        </ul>
+        <p>We do not use any analytics, advertising, or tracking SDKs. Firebase Analytics and Ads are explicitly disabled in the app.</p>
+
+        <h2>6. Data Sharing</h2>
+        <p>We do not sell, rent, or trade your personal information to third parties.</p>
+        <p>Your data is shared in the following limited contexts:</p>
+        <ul>
+            <li><strong>Within the app:</strong> Your username, profile photo, check-in activity, and reactions are visible to members of groups you belong to and your accountability partners.</li>
+            <li><strong>Service providers:</strong> Data is stored on Firebase (Google Cloud) infrastructure as described above. Google processes this data solely to provide the Firebase services.</li>
+            <li><strong>Legal requirements:</strong> We may disclose information if required by law or to protect our rights, safety, or property.</li>
+        </ul>
+
+        <h2>7. Data Retention and Deletion</h2>
+        <p>We retain your data for as long as your account is active. You can delete your account at any time from the app's Profile settings. Account deletion permanently removes:</p>
+        <ul>
+            <li>Your user profile and all personal information</li>
+            <li>All commitments you created</li>
+            <li>All check-in records and proof photos</li>
+            <li>All streak records</li>
+            <li>All invitations (sent and received)</li>
+            <li>Your profile avatar from storage</li>
+            <li>Groups you created (along with associated data)</li>
+            <li>Your membership from groups created by others</li>
+            <li>Your Firebase Authentication account</li>
+        </ul>
+        <p>Once deleted, your data cannot be recovered.</p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>TinyAct is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us so we can take appropriate action.</p>
+
+        <h2>9. Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the right to:</p>
+        <ul>
+            <li><strong>Access:</strong> Request a copy of the personal data we hold about you.</li>
+            <li><strong>Correction:</strong> Update or correct inaccurate information via your profile settings.</li>
+            <li><strong>Deletion:</strong> Delete your account and all associated data from within the app.</li>
+            <li><strong>Withdraw consent:</strong> Disable push notifications or revoke camera/photo library permissions through your device settings at any time.</li>
+        </ul>
+        <p>To exercise any of these rights, you can use the in-app settings or contact us at the email address below.</p>
+
+        <h2>10. Widget Data</h2>
+        <p>TinyAct includes an optional home screen widget. Widget data (commitment names, streak counts, and check-in status) is stored locally on your device using iOS App Groups and is never transmitted to external servers beyond what is already stored in your account.</p>
+
+        <h2>11. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you through the app or by updating the "Effective Date" at the top of this page. Continued use of TinyAct after changes constitutes acceptance of the updated policy.</p>
+
+        <h2>12. Contact Us</h2>
+        <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at:</p>
+        <p><strong>Email:</strong> <a href="mailto:lokeshpudari@gmail.com">lokeshpudari@gmail.com</a></p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="favicon.png" alt="TinyAct"></div>
+                <span class="logo-text">TinyAct</span>
+            </a>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:lokeshpudari@gmail.com">Contact</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 TinyAct. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

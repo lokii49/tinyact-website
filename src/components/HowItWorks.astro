@@ -1,0 +1,361 @@
+---
+// How It Works section - Simple 3-step flow
+---
+
+<section class="how-it-works section" id="how-it-works">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label label-coral">How It Works</span>
+      <h2>Start building real habits in 3 steps</h2>
+      <p>Simple setup. Powerful accountability. Results that last.</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="steps-line" aria-hidden="true"></div>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Create a micro-commitment</h3>
+            <p>Pick something so small you can't say no. 10 pushups. 5 minutes reading. One glass of water. Set a time-box: 7, 14, 21, or 30 days.</p>
+            <div class="step-example">
+              <span class="example-emoji">10</span>
+              <span class="example-text">pushups before 9am</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Add accountability</h3>
+            <p>Invite a partner or create a group. Enable "All Accountable" mode so everyone's streak depends on everyone checking in.</p>
+            <div class="step-avatars">
+              <div class="step-avatar" style="background: linear-gradient(135deg, #FF6B5A, #FF8F7A);">Y</div>
+              <div class="step-avatar" style="background: linear-gradient(135deg, #57C760, #7BD982);">M</div>
+              <div class="step-avatar" style="background: linear-gradient(135deg, #9466DE, #A880E8);">S</div>
+              <span class="step-avatar-text">Your accountability team</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Check in daily</h3>
+            <p>Tap to log your completion. Optional photo proof with watermarks. Build your streak. Your partner gets notified when you complete.</p>
+            <div class="step-checkin">
+              <div class="checkin-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Done
+              </div>
+              <span class="checkin-time">Takes 5 seconds</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature highlight -->
+    <div class="works-highlight reveal">
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <div class="highlight-content">
+          <h4>Time-boxed commitments</h4>
+          <p>7, 14, 21, or 30 days. Finite feels achievable. Renew if you want to continue.</p>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </div>
+        <div class="highlight-content">
+          <h4>Smart nudges</h4>
+          <p>Get reminded when your partner completes. Notifications timed to your preferred time.</p>
+        </div>
+      </div>
+
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+            <line x1="4" y1="22" x2="4" y2="15"></line>
+          </svg>
+        </div>
+        <div class="highlight-content">
+          <h4>Streak protection</h4>
+          <p>Pause for illness or travel. 4-hour grace period after midnight. Life happens.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works {
+    background: var(--bg-primary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+
+  .section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-extrabold);
+    margin: var(--space-4) 0;
+    line-height: var(--leading-tight);
+    color: var(--text-primary);
+  }
+
+  .section-header p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .steps-container {
+    position: relative;
+    margin-bottom: var(--space-16);
+  }
+
+  .steps-line {
+    position: absolute;
+    top: 45px;
+    left: 15%;
+    right: 15%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--coral), var(--purple), var(--green));
+    border-radius: var(--radius-full);
+    z-index: 0;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step {
+    text-align: center;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8) var(--space-6);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-slow);
+  }
+
+  .step:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-2xl);
+  }
+
+  .step-number {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--coral), var(--coral-light));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-extrabold);
+    margin: 0 auto var(--space-6);
+    box-shadow: var(--shadow-coral);
+  }
+
+  .step:nth-child(2) .step-number {
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    box-shadow: 0 15px 40px rgba(148, 102, 222, 0.35);
+  }
+
+  .step:nth-child(3) .step-number {
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    box-shadow: 0 15px 40px rgba(87, 199, 96, 0.35);
+  }
+
+  .step-content h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-3);
+    color: var(--text-primary);
+  }
+
+  .step-content p {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-5);
+  }
+
+  /* Step 1 example */
+  .step-example {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--gray-50);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+
+  .example-emoji {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--coral);
+  }
+
+  .example-text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Step 2 avatars */
+  .step-avatars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .step-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: var(--font-bold);
+    font-size: var(--text-sm);
+    margin-left: -8px;
+    border: 3px solid var(--white);
+  }
+
+  .step-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .step-avatar-text {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    margin-left: var(--space-2);
+  }
+
+  /* Step 3 check-in */
+  .step-checkin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .checkin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    color: var(--white);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    box-shadow: 0 8px 25px rgba(87, 199, 96, 0.35);
+  }
+
+  .checkin-time {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+  }
+
+  /* Highlight cards */
+  .works-highlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .highlight-card {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--gray-50);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-slow);
+  }
+
+  .highlight-card:hover {
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .highlight-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(255, 107, 90, 0.1), rgba(255, 107, 90, 0.05));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--coral);
+  }
+
+  .highlight-content h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+  }
+
+  .highlight-content p {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 1024px) {
+    .steps-line {
+      display: none;
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .works-highlight {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .step {
+      padding: var(--space-6);
+    }
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      font-size: var(--text-xl);
+    }
+  }
+</style>

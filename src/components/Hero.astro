@@ -1,0 +1,389 @@
+---
+// Hero section - the first impression that drives conversion
+---
+
+<section class="hero" id="main-content">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+  </div>
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="label label-coral">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83z"/>
+        </svg>
+        Available on iOS
+      </span>
+
+      <h1>
+        The habit app where <span class="text-gradient">quitting doesn't just affect you</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Pair with an accountability partner or join a group. If one person breaks the streak, everyone feels it. Real social cost creates real motivation.
+      </p>
+
+      <div class="hero-cta">
+        <a href="https://apps.apple.com/app/tinyact" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download Free for iOS
+        </a>
+        <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+      </div>
+
+      <p class="hero-note">Free forever. No credit card required.</p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone-showcase">
+        <!-- Main phone -->
+        <div class="phone phone-main">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="/screenshots/screen-my-goals.png" alt="TinyAct My Goals screen showing active streaks and commitments" loading="eager">
+          </div>
+        </div>
+
+        <!-- Secondary phone (offset behind) -->
+        <div class="phone phone-secondary">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <img src="/screenshots/feedview.jpeg" alt="TinyAct Live Activity Feed showing real-time check-ins" loading="eager">
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating badge -->
+      <div class="floating-badge">
+        <div class="badge-pulse"></div>
+        <div class="badge-icon">🔥</div>
+        <div class="badge-text">
+          <strong>12 day streak</strong>
+          <span>Partner completed today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 8rem 0 4rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 107, 90, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 90% 80%, rgba(148, 102, 222, 0.06) 0%, transparent 50%),
+      linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 560px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 1.5rem 0;
+    color: var(--text-primary);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .hero-note {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  /* Phone showcase */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 560px;
+    z-index: 1;
+  }
+
+  .phone-showcase {
+    position: relative;
+    width: 400px;
+    height: 560px;
+  }
+
+  .phone {
+    position: absolute;
+    width: 240px;
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 36px;
+    padding: 6px;
+    box-shadow:
+      0 25px 60px -12px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 22px;
+    background: #000;
+    border-radius: 11px;
+    z-index: 10;
+  }
+
+  .phone-main {
+    z-index: 3;
+    left: 20px;
+    top: 20px;
+    transform: rotate(-6deg);
+  }
+
+  .phone-secondary {
+    z-index: 2;
+    right: 20px;
+    top: 60px;
+    transform: rotate(8deg);
+  }
+
+  .phone-screen {
+    background: #000;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .phone-screen img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Floating badge */
+  .floating-badge {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--white);
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .badge-pulse {
+    position: absolute;
+    inset: -4px;
+    background: var(--coral);
+    border-radius: 1.25rem;
+    opacity: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0; transform: scale(1); }
+    50% { opacity: 0.15; transform: scale(1.05); }
+  }
+
+  .badge-icon {
+    font-size: 1.5rem;
+    position: relative;
+  }
+
+  .badge-text {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .badge-text strong {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .badge-text span {
+    font-size: 0.75rem;
+    color: var(--green);
+  }
+
+  /* Label */
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .label-coral {
+    background: rgba(255, 107, 90, 0.1);
+    color: var(--coral);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero {
+      padding: 7rem 0 3rem;
+      min-height: auto;
+    }
+
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+
+    .hero-content {
+      max-width: 100%;
+      order: 1;
+    }
+
+    .hero-visual {
+      order: 2;
+      min-height: 480px;
+    }
+
+    .hero-cta {
+      justify-content: center;
+    }
+
+    .phone-showcase {
+      width: 340px;
+      height: 480px;
+    }
+
+    .phone {
+      width: 200px;
+    }
+
+    .phone-main {
+      left: 30px;
+      top: 10px;
+      transform: rotate(-4deg);
+    }
+
+    .phone-secondary {
+      right: 30px;
+      top: 40px;
+      transform: rotate(6deg);
+    }
+
+    .floating-badge {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-6px); }
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 6rem 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 1.875rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-cta .btn {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .phone-showcase {
+      width: 280px;
+      height: 420px;
+    }
+
+    .phone {
+      width: 180px;
+    }
+
+    .phone-main {
+      left: 50%;
+      transform: translateX(-50%) rotate(0deg);
+    }
+
+    .phone-secondary {
+      display: none;
+    }
+
+    .floating-badge {
+      display: none;
+    }
+  }
+</style>
