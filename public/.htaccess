@@ -1,5 +1,11 @@
 RewriteEngine On
 RewriteBase /
 
+# Force correct Content-Type for Apple/Android app association files
+<FilesMatch "apple-app-site-association|assetlinks\.json">
+    Header always set Content-Type "application/json"
+    Header always set Cache-Control "no-cache, no-store"
+</FilesMatch>
+
 # Serve join page for any /join/<code> path — JS reads code from window.location.pathname
 RewriteRule ^join/[^/]+/?$ /join/index.html [L]
