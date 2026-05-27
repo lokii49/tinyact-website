@@ -1,30 +1,57 @@
 ---
-// Social Proof section - Testimonials and example outcomes
+// Social Proof section - Research-backed stats with visual polish
 ---
 
 <section class="social-proof section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="label label-coral">Real Results</span>
-      <h2>What accountability looks like in practice</h2>
-      <p>The science and features behind building lasting habits.</p>
+      <span class="label label-coral">Why It Works</span>
+      <h2>Accountability is the missing ingredient</h2>
+      <p>The research behind why social commitment outperforms willpower alone.</p>
     </div>
 
-    <div class="stats-banner reveal">
-      <div class="stat-item">
-        <span class="stat-number">65%</span>
-        <span class="stat-desc">more likely to complete goals with a partner</span>
+    <div class="stats-grid reveal">
+      <div class="stat-card stat-card-primary">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <span class="stat-number" data-count="65" data-suffix="%">65%</span>
+        <span class="stat-label">more likely to reach your goal when you commit to a partner</span>
+        <span class="stat-source">American Society of Training &amp; Development</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">21</span>
-        <span class="stat-desc">days to form a lasting habit</span>
+
+      <div class="stat-card stat-card-green">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <span class="stat-number" data-count="21">21</span>
+        <span class="stat-label">days is the average time to form a new lasting habit</span>
+        <span class="stat-source">Behavioral science research</span>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-number">4h</span>
-        <span class="stat-desc">grace period so life doesn't ruin your streak</span>
+
+      <div class="stat-card stat-card-purple">
+        <div class="stat-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <span class="stat-number" data-count="4" data-suffix="h">4h</span>
+        <span class="stat-label">grace period so life doesn't ruin a streak you've earned</span>
+        <span class="stat-source">Built into TinyAct</span>
       </div>
+    </div>
+
+    <div class="proof-callout reveal">
+      <div class="proof-icon" aria-hidden="true">💡</div>
+      <p>When your partner's streak <strong>depends on you showing up</strong>, motivation stops being optional.</p>
     </div>
   </div>
 </section>
@@ -54,62 +81,162 @@
     margin: 0 auto;
   }
 
-  /* Stats Banner */
-  .stats-banner {
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-slow);
+  }
+
+  .stat-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+
+  .stat-card-primary::before { background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
+  .stat-card-green::before   { background: linear-gradient(90deg, var(--green-dark), var(--green-light)); }
+  .stat-card-purple::before  { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-12);
-    background: linear-gradient(135deg, var(--gray-900), var(--gray-800));
-    border-radius: var(--radius-3xl);
-    padding: var(--space-10) var(--space-12);
-    color: var(--white);
+    margin-bottom: var(--space-3);
+    flex-shrink: 0;
   }
 
-  .stat-item {
-    text-align: center;
+  .stat-card-primary .stat-icon {
+    background: rgba(255, 107, 90, 0.15);
+    color: var(--coral-light);
+  }
+
+  .stat-card-green .stat-icon {
+    background: rgba(87, 199, 96, 0.15);
+    color: var(--green-light);
+  }
+
+  .stat-card-purple .stat-icon {
+    background: rgba(148, 102, 222, 0.15);
+    color: var(--purple-light);
   }
 
   .stat-number {
     display: block;
-    font-size: var(--text-5xl);
+    font-size: clamp(3rem, 5vw, 4rem);
     font-weight: var(--font-extrabold);
+    line-height: 1;
+    margin-bottom: var(--space-1);
+    font-family: var(--font-display);
+  }
+
+  .stat-card-primary .stat-number {
     background: linear-gradient(135deg, var(--coral), var(--coral-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1;
-    margin-bottom: var(--space-2);
   }
 
-  .stat-desc {
-    font-size: var(--text-sm);
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 180px;
-    display: block;
+  .stat-card-green .stat-number {
+    background: linear-gradient(135deg, var(--green), var(--green-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-card-purple .stat-number {
+    background: linear-gradient(135deg, var(--purple), var(--purple-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: var(--text-base);
+    color: rgba(255, 255, 255, 0.8);
     line-height: var(--leading-snug);
+    flex: 1;
   }
 
-  .stat-divider {
-    width: 1px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
+  .stat-source {
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.35);
+    margin-top: var(--space-2);
+    font-style: italic;
   }
 
-  @media (max-width: 1024px) {
-    .stats-banner {
+  /* Proof callout */
+  .proof-callout {
+    background: linear-gradient(135deg, rgba(255, 107, 90, 0.06), rgba(255, 107, 90, 0.02));
+    border: 1px solid rgba(255, 107, 90, 0.12);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6) var(--space-8);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .proof-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .proof-callout p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  .proof-callout strong {
+    color: var(--coral);
+    font-weight: var(--font-semibold);
+  }
+
+  @media (max-width: 900px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .proof-callout {
       flex-direction: column;
-      gap: var(--space-6);
-      padding: var(--space-8);
+      text-align: center;
+      padding: var(--space-6);
     }
 
-    .stat-divider {
-      width: 60px;
-      height: 1px;
-    }
-
-    .stat-desc {
-      max-width: 100%;
+    .proof-callout p {
+      font-size: var(--text-base);
     }
   }
 </style>

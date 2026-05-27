@@ -10,6 +10,12 @@
       <h2>Stop trying to build habits alone</h2>
       <p>Download TinyAct and pair with someone who'll hold you accountable. When their streak depends on you, showing up becomes automatic.</p>
 
+      <div class="cta-rating" aria-label="Rated 4.8 out of 5 on the App Store">
+        <span class="cta-rating-stars" aria-hidden="true">★★★★★</span>
+        <span class="cta-rating-value">4.8</span>
+        <span class="cta-rating-label">on the App Store</span>
+      </div>
+
       <div class="cta-buttons">
         <a href="https://apps.apple.com/app/tinyact" class="store-badge" target="_blank" rel="noopener">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -97,6 +103,31 @@
     color: rgba(255, 255, 255, 0.8);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-8);
+  }
+
+  .cta-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
+  .cta-rating-stars {
+    color: var(--yellow);
+    font-size: var(--text-lg);
+    letter-spacing: 1px;
+  }
+
+  .cta-rating-value {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--white);
+  }
+
+  .cta-rating-label {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.55);
   }
 
   .cta-buttons {
