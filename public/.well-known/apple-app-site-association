@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["7NP4QNTWNQ.com.lokesh.Tinyact"],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Commitment share links"
+          }
+        ]
+      }
+    ]
+  }
+}

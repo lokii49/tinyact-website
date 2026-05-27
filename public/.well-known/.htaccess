@@ -1,0 +1,8 @@
+<Files "apple-app-site-association">
+    Header always set Content-Type "application/json"
+    Header always set Cache-Control "no-cache"
+</Files>
+<Files "assetlinks.json">
+    Header always set Content-Type "application/json"
+    Header always set Cache-Control "no-cache"
+</Files>

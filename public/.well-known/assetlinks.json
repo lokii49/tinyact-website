@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.lokesh.Tinyact",
+      "sha256_cert_fingerprints": [
+          "44:7D:73:D3:30:58:5A:3A:6C:48:1D:9B:F4:6A:21:96:D4:48:F8:21:AA:00:45:FE:0A:91:47:0C:5A:B7:9B:A0", "D9:0D:8D:43:75:26:D2:10:8E:24:D2:83:9C:1D:AF:28:8F:49:EC:D2:D2:F3:D4:FD:AA:75:AF:C4:FD:E5:C0:D2"
+      ]
+    }
+  }
+]
