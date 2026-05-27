@@ -5,6 +5,9 @@
 <section class="hero" id="main-content">
   <div class="hero-bg">
     <div class="hero-gradient"></div>
+    <div class="hero-orb orb-1"></div>
+    <div class="hero-orb orb-2"></div>
+    <div class="hero-orb orb-3"></div>
   </div>
 
   <div class="container hero-container">
@@ -47,6 +50,13 @@
       </div>
 
       <p class="hero-note">Free forever. No credit card required.</p>
+
+      <div class="hero-trust">
+        <div class="trust-stars" aria-label="4.8 out of 5 stars">★★★★★</div>
+        <span class="trust-rating">4.8</span>
+        <span class="trust-sep">·</span>
+        <span class="trust-text">Free on iOS &amp; Android</span>
+      </div>
     </div>
 
     <div class="hero-visual">
@@ -68,13 +78,23 @@
         </div>
       </div>
 
-      <!-- Floating badge -->
+      <!-- Floating badge — streak -->
       <div class="floating-badge">
         <div class="badge-pulse"></div>
         <div class="badge-icon">🔥</div>
         <div class="badge-text">
           <strong>12 day streak</strong>
           <span>Partner completed today</span>
+        </div>
+      </div>
+
+      <!-- Floating badge — notification -->
+      <div class="floating-badge floating-badge-notify">
+        <div class="badge-notify-dot"></div>
+        <div class="badge-icon">✅</div>
+        <div class="badge-text">
+          <strong>Alex checked in</strong>
+          <span>2 min ago · Day 12</span>
         </div>
       </div>
     </div>
@@ -104,6 +124,60 @@
       radial-gradient(ellipse 80% 60% at 10% 20%, rgba(255, 107, 90, 0.08) 0%, transparent 50%),
       radial-gradient(ellipse 60% 50% at 90% 80%, rgba(148, 102, 222, 0.06) 0%, transparent 50%),
       linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 107, 90, 0.12) 0%, transparent 70%);
+    filter: blur(60px);
+    top: -180px;
+    left: -140px;
+    animation: orb-drift-1 14s ease-in-out infinite;
+  }
+
+  .orb-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(148, 102, 222, 0.1) 0%, transparent 70%);
+    filter: blur(50px);
+    bottom: -80px;
+    right: 25%;
+    animation: orb-drift-2 18s ease-in-out infinite;
+  }
+
+  .orb-3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(87, 199, 96, 0.09) 0%, transparent 70%);
+    filter: blur(40px);
+    top: 35%;
+    right: -60px;
+    animation: orb-drift-3 16s ease-in-out infinite;
+  }
+
+  @keyframes orb-drift-1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, -30px) scale(1.05); }
+    66% { transform: translate(-20px, 25px) scale(0.95); }
+  }
+
+  @keyframes orb-drift-2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40% { transform: translate(-35px, -20px) scale(1.08); }
+    70% { transform: translate(25px, 15px) scale(0.96); }
+  }
+
+  @keyframes orb-drift-3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -40px) scale(1.1); }
   }
 
   .hero-container {
@@ -277,6 +351,68 @@
     color: var(--green);
   }
 
+  /* Second floating badge (notification) */
+  .floating-badge-notify {
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    animation: float-notify 4s ease-in-out infinite;
+    animation-delay: 1.5s;
+    z-index: 10;
+  }
+
+  .badge-notify-dot {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background: var(--green);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes float-notify {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Trust bar */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+
+  .trust-stars {
+    color: var(--yellow);
+    font-size: var(--text-sm);
+    letter-spacing: 1px;
+  }
+
+  .trust-rating {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
+  .trust-sep {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
+
+  .trust-text {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
   /* Label */
   .label {
     display: inline-flex;
@@ -347,6 +483,15 @@
       bottom: 20px;
     }
 
+    .floating-badge-notify {
+      top: 10px;
+      right: 10px;
+    }
+
+    .hero-trust {
+      justify-content: center;
+    }
+
     @keyframes float {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(-6px); }
@@ -396,6 +541,14 @@
 
     .floating-badge {
       display: none;
+    }
+
+    .floating-badge-notify {
+      display: none;
+    }
+
+    .hero-trust {
+      justify-content: center;
     }
   }
 </style>
