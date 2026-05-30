@@ -19,21 +19,13 @@ npm run build
 npm run preview
 ```
 
-## Production Build
+## Deployment
 
-The `npm run build` command generates a static site in the `dist/` folder.
+Push to `main` → GitHub Actions auto-builds and deploys to GitHub Pages → live at tinyact.app.
 
-## Deployment to Hostinger
+Workflow: `.github/workflows/deploy.yml`
 
-### Option 1: Upload dist folder
-1. Run `npm run build`
-2. Upload all contents of `dist/` folder to public_html on Hostinger
-
-### Option 2: Use FileManager
-1. Build the site locally
-2. Zip the `dist/` folder contents
-3. Upload via Hostinger FileManager
-4. Extract to public_html
+To trigger manually: GitHub → Actions → "Deploy to GitHub Pages" → Run workflow.
 
 ## File Structure After Build
 
