@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="TinyAct Privacy Policy - Learn how we collect, use, and protect your data.">
+    <meta name="theme-color" content="#FF6B5A">
     <title>Privacy Policy - TinyAct</title>
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -12,248 +13,247 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #FF6B5A;
-            --primary-light: #FF8F7A;
-            --text-primary: #0F172A;
-            --text-secondary: #475569;
-            --text-muted: #94A3B8;
-            --bg-white: #FFFFFF;
-            --bg-light: #F8FAFC;
-            --border-light: #E2E8F0;
+            --coral: #FF6B5A;
+            --coral-deep: #E85545;
+            --coral-text: #D64533;
+            --coral-tint: #FFE9E4;
+            --paper: #FFFBF8;
+            --paper-warm: #FFF3ED;
+            --card: #FFFFFF;
+            --night: #211511;
+            --night-line: #433028;
+            --ink: #26150F;
+            --ink-soft: #6E574D;
+            --ink-faint: #A59087;
+            --ink-inverse: #FBF3EE;
+            --ink-inverse-soft: #CBB6AC;
+            --line: #F1E2D9;
+            --font-display: 'Bricolage Grotesque', 'Figtree', -apple-system, sans-serif;
+            --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'Spline Sans Mono', ui-monospace, monospace;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text-primary);
+            font-family: var(--font-body);
+            color: var(--ink);
             line-height: 1.7;
-            background: var(--bg-white);
+            background: var(--paper);
             font-size: 16px;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigation */
+        a { color: inherit; text-decoration: none; }
+
+        /* Header */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(0,0,0,0.04);
+            background: rgba(255, 251, 248, 0.88);
+            backdrop-filter: blur(16px) saturate(160%);
+            border-bottom: 1px solid var(--line);
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
+        .logo { display: flex; align-items: center; gap: 0.75rem; }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: #000;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 38px; height: 38px;
+            background: var(--ink);
+            border-radius: 11px;
+            display: flex; align-items: center; justify-content: center;
             padding: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
 
         .logo-text {
-            font-size: 1.5rem;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
             font-weight: 800;
-            color: var(--text-primary);
-        }
-
-        .btn {
-            padding: 0.75rem 1.75rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            border: none;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            box-shadow: 0 15px 40px rgba(255,107,90,0.35);
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            background: var(--coral-deep);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.875rem;
+            box-shadow: 0 10px 28px -8px rgba(232, 85, 69, 0.45);
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.15s ease;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(255,107,90,0.45);
-        }
+        .btn-primary:hover { background: var(--coral); transform: translateY(-2px); }
 
-        /* Page Header */
+        /* Page header */
         .page-header {
-            padding: 8rem 2rem 3rem;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 9rem 1.5rem 4rem;
+            background: var(--paper-warm);
+            border-bottom: 1px solid var(--line);
             text-align: center;
         }
 
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background:
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(255, 107, 90, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(102, 126, 234, 0.2) 0%, transparent 50%);
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--coral-text);
+            margin-bottom: 1rem;
         }
 
-        .page-header-content {
-            position: relative;
-            z-index: 1;
+        .eyebrow::before {
+            content: '';
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--coral);
         }
 
         .page-header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: var(--font-display);
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
             font-weight: 800;
-            color: white;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
         }
 
-        .page-header p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.7);
+        .page-header .subtitle {
+            font-size: 1.125rem;
+            color: var(--ink-soft);
+            margin-bottom: 1.5rem;
         }
 
         .effective-date {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.5);
-            margin-top: 0.5rem;
+            display: inline-flex;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 0.5rem;
+            background: var(--coral-tint);
+            color: var(--coral-text);
         }
 
         /* Content */
         .content {
-            max-width: 780px;
+            max-width: 720px;
             margin: 0 auto;
-            padding: 3rem 2rem 6rem;
+            padding: 4rem 1.5rem 5rem;
         }
 
         .content h2 {
-            font-size: 1.4rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 2.5rem 0 0.75rem;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.015em;
+            margin: 2.75rem 0 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
         }
+
+        .content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 
         .content h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin: 1.75rem 0 0.75rem;
         }
 
-        .content p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
+        .content p { color: var(--ink-soft); margin-bottom: 1rem; }
 
-        .content ul {
-            margin: 0.5rem 0 1rem 1.5rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .content li {
-            margin-bottom: 0.4rem;
-        }
-
-        .content strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
+        .content strong { color: var(--ink); font-weight: 600; }
 
         .content a {
-            color: var(--primary);
-            text-decoration: none;
+            color: var(--coral-text);
             font-weight: 500;
-            transition: opacity 0.2s;
+            border-bottom: 1px solid rgba(214, 69, 51, 0.3);
+            transition: border-color 0.15s ease;
         }
 
-        .content a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+        .content a:hover { border-bottom-color: var(--coral-text); }
+
+        .content ul {
+            list-style: none;
+            margin: 0 0 1.25rem;
+        }
+
+        .content ul li {
+            position: relative;
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            color: var(--ink-soft);
+        }
+
+        .content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0.25rem;
+            top: 0.95rem;
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: var(--coral);
         }
 
         /* Footer */
         footer {
-            padding: 2.5rem 2rem;
-            background: var(--bg-white);
-            border-top: 1px solid var(--border-light);
+            background: var(--night);
+            color: var(--ink-inverse-soft);
+            padding: 3rem 1.5rem;
         }
 
         .footer-container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
+            text-align: center;
         }
+
+        footer .logo-icon { background: rgba(255, 255, 255, 0.08); }
+        footer .logo-text { color: var(--ink-inverse); }
 
         .footer-links {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.875rem;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+        .footer-links a { transition: color 0.15s ease; }
+        .footer-links a:hover { color: var(--coral); }
 
-        .footer-links a:hover { color: var(--primary); }
+        .footer-copyright { font-size: 0.75rem; }
 
-        .footer-copyright {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .page-header { padding: 7rem 1.5rem 2.5rem; }
-            .content { padding: 2rem 1.5rem 4rem; }
-            .footer-container { flex-direction: column; text-align: center; }
-        }
+        :focus-visible { outline: 2px solid var(--coral-deep); outline-offset: 2px; }
+        ::selection { background: var(--coral); color: #fff; }
     </style>
 </head>
 <body>
@@ -265,28 +265,25 @@
                 <div class="logo-icon"><img src="favicon.png" alt="TinyAct"></div>
                 <span class="logo-text">TinyAct</span>
             </a>
-            <a href="https://apps.apple.com/app/tinyact" class="btn btn-primary">Download</a>
+            <a href="index.html#download" class="btn btn-primary">Get the app</a>
         </nav>
     </header>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="page-header-content">
-            <h1>Privacy Policy</h1>
-            <p>How we handle your data at TinyAct</p>
-            <p class="effective-date">Effective Date: February 5, 2026</p>
-        </div>
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">How we handle your data at TinyAct</p>
+        <p class="effective-date">Effective: February 5, 2026</p>
     </section>
 
     <!-- Content -->
     <div class="content">
-
         <h2>1. Introduction</h2>
         <p>TinyAct ("we," "our," or "the app") is a micro-commitment tracking application designed to help you build consistent daily habits through accountability and community. This Privacy Policy explains what information we collect, how we use it, and the choices you have regarding your data.</p>
         <p>By using TinyAct, you agree to the collection and use of information as described in this policy.</p>
 
         <h2>2. Information We Collect</h2>
-
         <h3>2.1 Account Information</h3>
         <p>When you create an account, we collect:</p>
         <ul>
@@ -405,7 +402,6 @@
         <h2>12. Contact Us</h2>
         <p>If you have questions, concerns, or requests regarding this Privacy Policy or your data, please contact us at:</p>
         <p><strong>Email:</strong> <a href="mailto:lokeshpudari@gmail.com">lokeshpudari@gmail.com</a></p>
-
     </div>
 
     <!-- Footer -->
@@ -424,6 +420,5 @@
             <p class="footer-copyright">&copy; 2026 TinyAct. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
