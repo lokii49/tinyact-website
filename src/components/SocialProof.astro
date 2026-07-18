@@ -1,242 +1,108 @@
 ---
-// Social Proof section - Research-backed stats with visual polish
+// Social proof — the research behind social commitment
 ---
 
 <section class="social-proof section">
   <div class="container">
     <div class="section-header reveal">
-      <span class="label label-coral">Why It Works</span>
+      <span class="eyebrow">Why it works</span>
       <h2>Accountability is the missing ingredient</h2>
       <p>The research behind why social commitment outperforms willpower alone.</p>
     </div>
 
     <div class="stats-grid reveal">
-      <div class="stat-card stat-card-primary">
-        <div class="stat-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-        </div>
+      <div class="stat-card">
         <span class="stat-number" data-count="65" data-suffix="%">65%</span>
-        <span class="stat-label">more likely to reach your goal when you commit to a partner</span>
+        <p class="stat-label">more likely to reach your goal when you commit to a partner</p>
         <span class="stat-source">American Society of Training &amp; Development</span>
       </div>
 
-      <div class="stat-card stat-card-green">
-        <div class="stat-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-        </div>
+      <div class="stat-card">
         <span class="stat-number" data-count="21">21</span>
-        <span class="stat-label">days is the average time to form a new lasting habit</span>
+        <p class="stat-label">days is the average time to form a new lasting habit</p>
         <span class="stat-source">Behavioral science research</span>
       </div>
 
-      <div class="stat-card stat-card-purple">
-        <div class="stat-icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-          </svg>
-        </div>
+      <div class="stat-card">
         <span class="stat-number" data-count="4" data-suffix="h">4h</span>
-        <span class="stat-label">grace period so life doesn't ruin a streak you've earned</span>
+        <p class="stat-label">grace period so life doesn't ruin a streak you've earned</p>
         <span class="stat-source">Built into TinyAct</span>
       </div>
     </div>
 
-    <div class="proof-callout reveal">
-      <div class="proof-icon" aria-hidden="true">💡</div>
-      <p>When your partner's streak <strong>depends on you showing up</strong>, motivation stops being optional.</p>
-    </div>
+    <p class="proof-callout reveal">
+      When your partner's streak <strong>depends on you showing up</strong>,
+      motivation stops being optional.
+    </p>
   </div>
 </section>
 
 <style>
-  .social-proof {
-    background: var(--bg-primary);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-12);
-  }
-
-  .section-header h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: var(--font-extrabold);
-    margin: var(--space-4) 0;
-    line-height: var(--leading-tight);
-    color: var(--text-primary);
-  }
-
-  .section-header p {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  /* Stats Grid */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-12);
   }
 
   .stat-card {
-    background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
-    border-radius: var(--radius-2xl);
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
     padding: var(--space-8);
-    color: var(--white);
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-slow);
-  }
-
-  .stat-card:hover {
-    transform: translateY(-6px);
-  }
-
-  .stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-  }
-
-  .stat-card-primary::before { background: linear-gradient(90deg, var(--coral), var(--coral-light)); }
-  .stat-card-green::before   { background: linear-gradient(90deg, var(--green-dark), var(--green-light)); }
-  .stat-card-purple::before  { background: linear-gradient(90deg, var(--purple), var(--purple-light)); }
-
-  .stat-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--space-3);
-    flex-shrink: 0;
-  }
-
-  .stat-card-primary .stat-icon {
-    background: rgba(255, 107, 90, 0.15);
-    color: var(--coral-light);
-  }
-
-  .stat-card-green .stat-icon {
-    background: rgba(87, 199, 96, 0.15);
-    color: var(--green-light);
-  }
-
-  .stat-card-purple .stat-icon {
-    background: rgba(148, 102, 222, 0.15);
-    color: var(--purple-light);
   }
 
   .stat-number {
-    display: block;
-    font-size: clamp(3rem, 5vw, 4rem);
-    font-weight: var(--font-extrabold);
+    font-family: var(--font-mono);
+    font-size: var(--text-5xl);
+    font-weight: 600;
     line-height: 1;
-    margin-bottom: var(--space-1);
-    font-family: var(--font-display);
-  }
-
-  .stat-card-primary .stat-number {
-    background: linear-gradient(135deg, var(--coral), var(--coral-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .stat-card-green .stat-number {
-    background: linear-gradient(135deg, var(--green), var(--green-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .stat-card-purple .stat-number {
-    background: linear-gradient(135deg, var(--purple), var(--purple-light));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--coral-deep);
+    margin-bottom: var(--space-3);
   }
 
   .stat-label {
     font-size: var(--text-base);
-    color: rgba(255, 255, 255, 0.8);
-    line-height: var(--leading-snug);
+    color: var(--ink);
+    font-weight: 500;
     flex: 1;
+    margin-bottom: var(--space-4);
   }
 
   .stat-source {
-    font-size: var(--text-xs);
-    color: rgba(255, 255, 255, 0.35);
-    margin-top: var(--space-2);
-    font-style: italic;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--line);
+    padding-top: var(--space-3);
   }
 
-  /* Proof callout */
   .proof-callout {
-    background: linear-gradient(135deg, rgba(255, 107, 90, 0.06), rgba(255, 107, 90, 0.02));
-    border: 1px solid rgba(255, 107, 90, 0.12);
-    border-radius: var(--radius-2xl);
-    padding: var(--space-6) var(--space-8);
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-    max-width: 680px;
+    max-width: 560px;
     margin: 0 auto;
-  }
-
-  .proof-icon {
-    font-size: 2rem;
-    flex-shrink: 0;
-  }
-
-  .proof-callout p {
-    font-size: var(--text-lg);
-    color: var(--text-secondary);
-    line-height: var(--leading-relaxed);
-    margin: 0;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 500;
+    color: var(--ink-soft);
   }
 
   .proof-callout strong {
-    color: var(--coral);
-    font-weight: var(--font-semibold);
+    color: var(--coral-deep);
+    font-weight: 700;
   }
 
   @media (max-width: 900px) {
     .stats-grid {
       grid-template-columns: 1fr;
-      max-width: 440px;
+      max-width: 420px;
       margin-left: auto;
       margin-right: auto;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .proof-callout {
-      flex-direction: column;
-      text-align: center;
-      padding: var(--space-6);
-    }
-
-    .proof-callout p {
-      font-size: var(--text-base);
     }
   }
 </style>
