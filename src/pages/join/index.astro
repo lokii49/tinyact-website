@@ -49,9 +49,12 @@ const playStoreUrl = "https://play.google.com/store/apps/details?id=com.lokesh.T
 </Layout>
 
 <script define:vars={{ appStoreUrl, playStoreUrl }}>
-  // Extract code from URL path: /join/<code>
+  // Code comes from the path (/join/<code>) or, after the 404 page redirects an
+  // invite link here, from the query (/join/?code=<code>).
   const pathParts = window.location.pathname.split('/').filter(Boolean);
-  const code = pathParts[pathParts.indexOf('join') + 1] || '';
+  const joinIndex = pathParts.indexOf('join');
+  const pathCode = joinIndex >= 0 ? (pathParts[joinIndex + 1] || '') : '';
+  const code = pathCode || new URLSearchParams(window.location.search).get('code') || '';
 
   const ua = navigator.userAgent;
   const isIOS = /iPhone|iPad|iPod/.test(ua);
