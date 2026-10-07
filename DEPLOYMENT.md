@@ -27,6 +27,16 @@ Workflow: `.github/workflows/deploy.yml`
 
 To trigger manually: GitHub → Actions → "Deploy to GitHub Pages" → Run workflow.
 
+### Invite links
+
+GitHub Pages serves `404.html` for arbitrary `/join/{code}` paths; Apache
+`.htaccess` rewrites do not run there. The 404 page renders the shared invite
+landing page in place for these paths, preserving the invite URL and code.
+It offers “Open in TinyAct” and both store links. `/join/?code={code}` also
+works as a normal 200 page. Other missing paths still show “Page not found”.
+The server response for arbitrary invite paths remains 404 on GitHub Pages;
+returning 200 for them would require a hosting rewrite or an edge worker.
+
 ## File Structure After Build
 
 ```

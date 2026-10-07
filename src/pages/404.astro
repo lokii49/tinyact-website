@@ -1,24 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import InviteLanding from '../components/InviteLanding.astro';
 ---
 
 <Layout
   title="Page not found · TinyAct"
   description="This page doesn't exist on TinyAct."
 >
-  <script is:inline>
-    // GitHub Pages ignores .htaccess, so invite links (/join/<code>) land on this
-    // 404 page. Send them to the join page, which also reads the code from ?code=.
-    (function () {
-      var match = window.location.pathname.match(/^\/join\/([^/]+)\/?$/);
-      if (!match) return;
-      var code = match[1];
-      try { code = decodeURIComponent(code); } catch (e) {}
-      window.location.replace('/join/?code=' + encodeURIComponent(code));
-    })();
-  </script>
+  <div id="invite-fallback" hidden>
+    <InviteLanding />
+  </div>
 
-  <main class="not-found">
+  <main class="not-found" id="not-found">
     <div class="card">
       <div class="logo">
         <img src="/favicon.png" alt="TinyAct" width="64" height="64" />
@@ -29,9 +22,26 @@ import Layout from '../layouts/Layout.astro';
       <a href="/" class="btn-primary">Go to tinyact.app</a>
     </div>
   </main>
+  <script is:inline>
+    // GitHub Pages serves 404.html for arbitrary invite codes. Render the
+    // invite here so its URL and code survive without a redirect.
+    if (/^\/join\/[^/]+\/?$/.test(window.location.pathname)) {
+      document.getElementById('invite-fallback').hidden = false;
+      document.getElementById('not-found').hidden = true;
+      document.getElementById('not-found').removeAttribute('id');
+      document.title = "Open in TinyAct · You're invited";
+    } else {
+      document.querySelector('#invite-fallback #main-content').removeAttribute('id');
+      document.getElementById('not-found').id = 'main-content';
+    }
+  </script>
+  <noscript>
+    <p>For a TinyAct invite, <a href="/join/">open the invite page</a> to find links to the App Store and Google Play.</p>
+  </noscript>
 </Layout>
 
 <style>
+  [hidden] { display: none !important; }
   .not-found {
     min-height: 100vh;
     display: flex;
