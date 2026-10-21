@@ -1,0 +1,258 @@
+---
+// tinyact.app/status — live aggregate counts from the publicStats Cloud Function
+import Layout from '../layouts/Layout.astro';
+
+const API = 'https://us-central1-microcommit-973c7.cloudfunctions.net/publicStats';
+---
+
+<Layout
+  title="TinyAct Status · Live check-ins and commitments"
+  description="Live TinyAct numbers: total check-ins, active commitments, and daily check-ins and new commitments over the last 30 days."
+>
+  <main class="status" data-api={API} data-dev={import.meta.env.DEV ? '1' : undefined}>
+    <header class="status-head">
+      <a href="/" class="status-logo" aria-label="TinyAct Home">TinyAct</a>
+      <h1>Status</h1>
+      <p class="status-updated" id="updated" aria-live="polite">Loading…</p>
+    </header>
+
+    <section class="tiles" aria-label="Totals">
+      <div class="tile"><span class="tile-label">Total check-ins</span><span class="tile-value" id="t-total">—</span></div>
+      <div class="tile"><span class="tile-label">Active commitments</span><span class="tile-value" id="t-active">—</span></div>
+      <div class="tile"><span class="tile-label">Check-ins today</span><span class="tile-value" id="t-today">—</span></div>
+      <div class="tile"><span class="tile-label">New commitments · 7 days</span><span class="tile-value" id="t-new7">—</span></div>
+    </section>
+
+    <section class="chart-card" style="--bar: var(--green-deep)">
+      <h2>Check-ins per day</h2>
+      <p class="chart-sub">Last 30 days · UTC days · today is partial</p>
+      <div class="chart" id="c-checkins"></div>
+      <details><summary>Show as table</summary><table id="tb-checkins"></table></details>
+    </section>
+
+    <section class="chart-card" style="--bar: var(--coral-deep)">
+      <h2>New commitments per day</h2>
+      <p class="chart-sub">Last 30 days · UTC days · today is partial</p>
+      <div class="chart" id="c-commitments"></div>
+      <details><summary>Show as table</summary><table id="tb-commitments"></table></details>
+    </section>
+
+    <div class="tooltip" id="tooltip" role="status" hidden></div>
+  </main>
+</Layout>
+
+<style>
+  .status {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 16px 64px;
+  }
+  .status-head { margin-bottom: 24px; }
+  .status-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    color: var(--coral-text);
+  }
+  .status-head h1 { font-size: 2.25rem; margin-top: 4px; }
+  .status-updated { color: var(--ink-soft); font-size: var(--text-sm); }
+  .status-updated.error { color: var(--coral-text); }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 760px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tile, .chart-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 16px;
+  }
+  .tile { display: flex; flex-direction: column; gap: 4px; }
+  .tile-label { color: var(--ink-soft); font-size: var(--text-sm); }
+  .tile-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .chart-card { margin-bottom: 20px; }
+  .chart-card h2 { font-size: var(--text-lg); }
+  .chart-sub { color: var(--ink-soft); font-size: var(--text-sm); margin-bottom: 12px; }
+  .chart { width: 100%; }
+  .chart :global(svg) { display: block; overflow: visible; }
+  .chart :global(.bar) { fill: var(--bar); }
+  .chart :global(.hit:hover + .bar), .chart :global(.bar.active) { opacity: 0.75; }
+  .chart :global(.grid) { stroke: var(--line); stroke-width: 1; }
+  .chart :global(.axis-label) { fill: var(--ink-faint); font-size: 11px; font-family: var(--font-body); }
+  .chart :global(.hit) { fill: transparent; cursor: default; }
+
+  details { margin-top: 12px; font-size: var(--text-sm); }
+  summary { color: var(--ink-soft); cursor: pointer; }
+  table { margin-top: 8px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  table :global(td), table :global(th) { padding: 2px 16px 2px 0; text-align: left; }
+  table :global(th) { color: var(--ink-soft); font-weight: 600; }
+
+  .tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--night);
+    color: var(--ink-inverse);
+    font-size: var(--text-sm);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .tooltip :global(b) { font-variant-numeric: tabular-nums; }
+</style>
+
+<script>
+  type Daily = { date: string; count: number };
+  type Stats = {
+    computedAt: string;
+    totalCheckIns: number;
+    activeCommitments: number;
+    checkInsPerDay: Daily[];
+    newCommitmentsPerDay: Daily[];
+  };
+
+  const root = document.querySelector<HTMLElement>('.status')!;
+  const tooltip = document.getElementById('tooltip')!;
+  // Local preview only: ?api=<url> points the page at a fixture.
+  const override = root.dataset.dev ? new URLSearchParams(location.search).get('api') : null;
+  const api = override || root.dataset.api!;
+  const fmt = new Intl.NumberFormat('en-US');
+  const dayFmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const label = (iso: string) => dayFmt.format(new Date(iso + 'T00:00:00Z'));
+  const SVG = 'http://www.w3.org/2000/svg';
+
+  function el(name: string, attrs: Record<string, string | number>) {
+    const node = document.createElementNS(SVG, name);
+    for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, String(v));
+    return node;
+  }
+
+  // Round the axis max up to a 1/2/5 step so gridlines land on readable values.
+  function niceMax(max: number) {
+    if (max <= 4) return 4;
+    const step = Math.pow(10, Math.floor(Math.log10(max / 4)));
+    const unit = [1, 2, 5, 10].map((m) => m * step).find((u) => u * 4 >= max)!;
+    return unit * 4;
+  }
+
+  function barChart(host: HTMLElement, data: Daily[], noun: string) {
+    const W = Math.max(280, host.clientWidth), H = W < 500 ? 180 : 220, left = 36, bottom = 22, top = 8;
+    const plotW = W - left, plotH = H - bottom - top;
+    const max = niceMax(Math.max(0, ...data.map((d) => d.count)));
+    const slot = plotW / data.length;
+    const barW = Math.max(2, slot - 2); // 2px surface gap between bars
+    const svg = el('svg', { width: W, height: H, viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `${noun} per day, last ${data.length} days` });
+
+    for (let i = 0; i <= 4; i++) {
+      const v = (max / 4) * i;
+      const y = top + plotH - (v / max) * plotH;
+      svg.append(el('line', { class: 'grid', x1: left, x2: W, y1: y, y2: y }));
+      const t = el('text', { class: 'axis-label', x: left - 6, y: y + 4, 'text-anchor': 'end' });
+      t.textContent = fmt.format(v);
+      svg.append(t);
+    }
+
+    data.forEach((d, i) => {
+      const x = left + i * slot + 1;
+      const h = (d.count / max) * plotH;
+      const y = top + plotH - h;
+      // Hit target spans the full column so short bars are still easy to hover.
+      const hit = el('rect', { class: 'hit', x: left + i * slot, y: top, width: slot, height: plotH });
+      const r = Math.min(4, barW / 2, h);
+      // Rounded top, square baseline.
+      const bar = el('path', {
+        class: 'bar',
+        d: h <= 0 ? '' : `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + barW - r}Q${x + barW},${y} ${x + barW},${y + r}V${y + h}Z`,
+      });
+      const show = (e: MouseEvent | PointerEvent) => {
+        bar.classList.add('active');
+        tooltip.innerHTML = `${label(d.date)}<br><b>${fmt.format(d.count)}</b> ${noun.toLowerCase()}`;
+        tooltip.hidden = false;
+        const tw = tooltip.offsetWidth;
+        tooltip.style.left = Math.min(window.innerWidth - tw - 8, Math.max(8, e.clientX - tw / 2)) + 'px';
+        tooltip.style.top = e.clientY - tooltip.offsetHeight - 12 + 'px';
+      };
+      hit.addEventListener('pointermove', show);
+      hit.addEventListener('pointerleave', () => { bar.classList.remove('active'); tooltip.hidden = true; });
+      svg.append(hit, bar);
+
+      // Label every week (every other on narrow screens) and today, skipping one that would crowd today.
+      const every = W < 500 ? 14 : 7;
+      const last = data.length - 1;
+      if (i === last || (i % every === 0 && last - i >= every / 2)) {
+        const t = el('text', { class: 'axis-label', x: x + barW / 2, y: H - 6, 'text-anchor': 'middle' });
+        t.textContent = i === data.length - 1 ? 'Today' : label(d.date);
+        svg.append(t);
+      }
+    });
+
+    host.replaceChildren(svg);
+  }
+
+  function table(host: HTMLElement, data: Daily[], noun: string) {
+    host.innerHTML = `<tr><th>Day (UTC)</th><th>${noun}</th></tr>` +
+      [...data].reverse().map((d) => `<tr><td>${d.date}</td><td>${fmt.format(d.count)}</td></tr>`).join('');
+  }
+
+  function ago(iso: string) {
+    const min = Math.round((Date.now() - Date.parse(iso)) / 60000);
+    return min < 1 ? 'just now' : min === 1 ? '1 minute ago' : `${min} minutes ago`;
+  }
+
+  let lastComputedAt = '';
+  let lastStats: Stats | null = null;
+
+  function drawCharts(s: Stats) {
+    barChart(document.getElementById('c-checkins')!, s.checkInsPerDay, 'Check-ins');
+    barChart(document.getElementById('c-commitments')!, s.newCommitmentsPerDay, 'New commitments');
+  }
+  const updated = document.getElementById('updated')!;
+
+  async function load() {
+    try {
+      const res = await fetch(api, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(String(res.status));
+      const s: Stats = await res.json();
+      const sum = (xs: Daily[]) => xs.reduce((a, d) => a + d.count, 0);
+      document.getElementById('t-total')!.textContent = fmt.format(s.totalCheckIns);
+      document.getElementById('t-active')!.textContent = fmt.format(s.activeCommitments);
+      document.getElementById('t-today')!.textContent = fmt.format(s.checkInsPerDay.at(-1)?.count ?? 0);
+      document.getElementById('t-new7')!.textContent = fmt.format(sum(s.newCommitmentsPerDay.slice(-7)));
+      drawCharts(s);
+      table(document.getElementById('tb-checkins')!, s.checkInsPerDay, 'Check-ins');
+      table(document.getElementById('tb-commitments')!, s.newCommitmentsPerDay, 'New commitments');
+      lastStats = s;
+      lastComputedAt = s.computedAt;
+      updated.classList.remove('error');
+      updated.textContent = `Updated ${ago(lastComputedAt)} · refreshes every 10 minutes`;
+    } catch {
+      updated.classList.add('error');
+      updated.textContent = lastComputedAt
+        ? `Couldn't refresh. Showing numbers from ${ago(lastComputedAt)}.`
+        : "Couldn't load the numbers. Try again in a minute.";
+    }
+  }
+
+  load();
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(() => lastStats && drawCharts(lastStats), 150);
+  });
+  setInterval(load, 5 * 60 * 1000);
+  setInterval(() => {
+    if (lastComputedAt && !updated.classList.contains('error')) {
+      updated.textContent = `Updated ${ago(lastComputedAt)} · refreshes every 10 minutes`;
+    }
+  }, 60 * 1000);
+</script>
