@@ -37,6 +37,41 @@ const API = 'https://us-central1-microcommit-973c7.cloudfunctions.net/publicStat
       <details><summary>Show as table</summary><table id="tb-commitments"></table></details>
     </section>
 
+    <section class="privacy" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Your data stays private</h2>
+      <p>
+        This page shows only totals: how many check-ins and commitments exist across everyone using TinyAct.
+        Nothing here can be traced back to you.
+      </p>
+      <div class="privacy-cols">
+        <div>
+          <h3>What we count</h3>
+          <ul>
+            <li>Total check-ins, ever</li>
+            <li>Commitments that are currently running</li>
+            <li>Check-ins per day, last 30 days</li>
+            <li>New commitments per day, last 30 days</li>
+          </ul>
+        </div>
+        <div>
+          <h3>What this page never shows</h3>
+          <ul>
+            <li>Names, emails or account details</li>
+            <li>What your commitments are</li>
+            <li>Check-in photos, notes or locations</li>
+            <li>Groups, partners or anyone's individual numbers</li>
+          </ul>
+        </div>
+      </div>
+      <h3>How these numbers are made</h3>
+      <p>
+        Our server counts the records and publishes only the resulting numbers, about every 10 minutes.
+        It never reads what's inside them for this page. Days follow UTC, so “today” may start or end at a
+        different hour where you are. Check-in photos stay encrypted and are visible only to you and the
+        people you share them with. Read more in our <a href="/privacy-policy.html">privacy policy</a>.
+      </p>
+    </section>
+
     <div class="tooltip" id="tooltip" role="status" hidden></div>
   </main>
 </Layout>
@@ -96,6 +131,24 @@ const API = 'https://us-central1-microcommit-973c7.cloudfunctions.net/publicStat
   table { margin-top: 8px; border-collapse: collapse; font-variant-numeric: tabular-nums; }
   table :global(td), table :global(th) { padding: 2px 16px 2px 0; text-align: left; }
   table :global(th) { color: var(--ink-soft); font-weight: 600; }
+
+  .privacy {
+    background: var(--green-tint);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 8px;
+  }
+  .privacy h2 { font-size: var(--text-lg); margin-bottom: 4px; }
+  .privacy h3 { font-size: var(--text-base); margin: 16px 0 4px; }
+  .privacy p, .privacy li { color: var(--ink-soft); font-size: var(--text-sm); }
+  .privacy ul { list-style: disc; padding-left: 20px; }
+  .privacy a { color: var(--coral-text); text-decoration: underline; }
+  .privacy-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+  }
+  @media (max-width: 600px) { .privacy-cols { grid-template-columns: minmax(0, 1fr); } }
 
   .tooltip {
     position: fixed;
